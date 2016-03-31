@@ -1,0 +1,26 @@
+{
+  "name": "studynode",
+  "version": "1.0.0",
+  "description": "正式开始学习node之旅",
+  "main": "index.js",
+  "dependencies": {
+    "mime": "^1.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shenmou101/studynode.git"
+  },
+  "keywords": [
+    "studynodejs"
+  ],
+  "author": "shenmou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shenmou101/studynode/issues"
+  },
+  "homepage": "https://github.com/shenmou101/studynode#readme"
+}
