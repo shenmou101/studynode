@@ -7,7 +7,7 @@ var server=http.createServer(function (req,res) {
     console.log(req.headers);   //请求的头
 
     res.statusCode=404; //设置响应码
-    res.setHeader('Content-Type','text/html;charset=utf-8') //设置响应头
+    res.setHeader('Content-Type','text/html;charset=utf-8'); //设置响应头
     res.write('hello');//响应体
     res.end('over')
 }).listen(8080,'localhost');
