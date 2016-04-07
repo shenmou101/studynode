@@ -1,9 +1,9 @@
 //导入核心模块http
 var http=require('http');
 var fs=require('fs');
-var mime=require('mime')
+var mime=require('mime');
 var server=http.createServer(function (req,res) {
-    var url=req.url;
+    var url=req.url;    //如 /index.html
     //如果没有指定文件名，或访问的是根目录，那么可以重定向到默认首页
     if(url=='/'){
         url='/index.html'

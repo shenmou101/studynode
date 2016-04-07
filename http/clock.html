@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="clock"></div>
+<script>
+window.onload= function () {
+    setInterval(function () {
+        //1.创建ajax对象
+        var xhr=new XMLHttpRequest();
+        //指定参数
+        xhr.open('GET','/clock',true);
+        xhr.onreadystatechange= function () {
+            if (xhr.readyState==4){  //只判断readyState可以保证相应已经返回，但不代表返回正确的数据如404 500 304
+                if(xhr.status==200){
+                    document.querySelector('#clock').innerHTML=xhr.responseText;
+                }else{
+                    document.querySelector('#clock').innerHTML=xhr.responseText;
+                }
+            }
+        };
+        //指定请求体发送数据
+        xhr.send();
+    },1000)
+}
+</script>
+</body>
+</html>

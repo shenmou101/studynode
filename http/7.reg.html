@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用户名：<input type="text" name="username">
+密码：<input type="text" name="age">
+<input type="button" onclick="reg()" value="注册">
+<script>
+    function reg(){
+        var username=document.querySelector("input[name='username')").value;
+        var age=document.querySelector("input[name='age')").value;
+        var user={
+            username:username,
+            age:age
+        };
+        //1.创建ajax对象
+        var xhr=new XMLHttpRequest();
+        //2.指定参数
+        xhr.open('POST','/reg',true);
+        //3.根据响应结果改变dom
+        xhr.onreadystatechange= function () {
+            if (xhr.readyState==4){  //只判断readyState可以保证相应已经返回，但不代表返回正确的数据如404 500 304
+                if(xhr.status==200){
+                    document.querySelector('#clock').innerHTML=xhr.responseText;
+                }else{
+                    document.querySelector('#clock').innerHTML=xhr.responseText;
+                }
+            }
+        };
+        //4.指定请求体发送数据 因为send一旦执行后面会阻塞 所以必须放在最后
+        xhr.send(JSON.stringify(user));
+        console.log(JSON.stringify(user))
+    }
+</script>
+</body>
+</html>
