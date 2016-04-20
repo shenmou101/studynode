@@ -2,7 +2,7 @@ var fs=require('fs');
 //1.创建目录
 //要求父目录必须存在
 //创建的是目录最后一层 而不是各层
-//若要创建的目录已存在 则报错 Error: EEXIST: file already exists
+//若要创建的目录已存在 则报错 Error: EEXIST: 7.file already exists
 /*
 
 fs.mkdir('../directory/t', function (err) {
