@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content">
+    <script>
+        var xhr =new XMLHttpRequest;
+        xhr.onreadystatechange = function () {
+            //alert(xhr.readyState);
+            if(xhr.readyState == 4){
+                console.log(xhr.status,xhr.statusText);
+                console.log(xhr.responseText)
+            }
+        };
+        xhr.open('GET','/ajax',true);
+        xhr.send();
+    </script>
+</div>
+</body>
+</html>
