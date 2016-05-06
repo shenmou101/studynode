@@ -9,7 +9,7 @@
     <script>
         var xhr =new XMLHttpRequest;
         xhr.onreadystatechange = function () {
-            //alert(xhr.readyState);
+            alert(xhr.readyState);
             if(xhr.readyState == 4){
                 console.log(xhr.status,xhr.statusText);
                 console.log(xhr.responseText)

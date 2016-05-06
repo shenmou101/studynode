@@ -5,58 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<div id="content">
-    <form action="/ajax" id="form" method="post" enctype="application/x-www-form-urlencoded">
-        用户名<br><input type="text" name="username"><br>
-        密码<br><input type="text" name="password">
-        <button onclick="reg()">注册</button>
-    </form>
-    <div class="username"></div>
-</div>
+
 <script>
-    function stringify(form){
-        var values = [];
-        Array.prototype.forEach.call(form.elements,function(element){
-            if(element.type == 'text')
-                values.push(element.name +'='+element.value);
-        });
-        return values.join('&');
-    }
-
-    function jsonify(form){
-        var values = {};
-        Array.prototype.forEach.call(form.elements,function (element) {
-            if(element.type == 'text'){
-                values[element.name] = element.value;
-            }
-        });
-        return JSON.stringify(values)
-    }
-
-    function reg(){
-        var xhr =new XMLHttpRequest;
-        xhr.open('POST','/ajax',true);
-        /*xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');*/
-        xhr.setRequestHeader('Content-Type','application/json');
-        xhr.onreadystatechange = function () {
-            if(xhr.readyState == 4){
-                console.log(xhr.status,xhr.statusText);
-                console.log(xhr.responseText);
-                console.log(xhr.getAllResponseHeaders());
-                console.log(xhr.getResponseHeader('content-type'));
-                var contentType = xhr.getResponseHeader('content-type');
-                if(contentType == 'application/json'){
-                    var j = JSON.parse(xhr.responseText);
-                    //console.log(j.username);
-                    document.querySelector('.username').innerText = j.username;
-                }
-                alert(1)
-            }
-        };
-        /*xhr.send(stringify(document.querySelector('#form')));*/
-        xhr.send(jsonify(document.querySelector('#form')))
-    }
-
+    var xhr = new XMLHttpRequest;
+    xhr.open('POST','/post');
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState == 4){
+            console.log(xhr.status,xhr.statusText);
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send('hello world')
 </script>
 </body>
 </html>
