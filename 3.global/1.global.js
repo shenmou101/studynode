@@ -5,7 +5,7 @@ console.time('cost');
 for(var i= 0;i<10000;i++){
 
 }
-console.timeEnd('cost');
+console.timeEnd('cost');  //输出计时器用的总时间
 
 //路径
 console.log(__filename);//当前模块的绝对路径

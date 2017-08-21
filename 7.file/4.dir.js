@@ -10,15 +10,15 @@ fs.mkdir('a/b', function (err) {
 });*/
 
 //读取指定目录下面所有的文件，结果是数组
-fs.readdir('./a', function (err,files) {
-    console.log(files);
+fs.readdir('./', function (err,files) {
+    console.log(files,'32323');
     files.forEach(function (file) {
-        fs.stat('./a/'+file, function (err,stat) {
+        fs.stat('./'+file, function (err,stat) {
             if(stat.isFile()){
                 fs.readFile('./a/'+file, function (err,data) {
-                    console.log(data.toString())
+                    //console.log(data.toString())
                 })
-            }else if(stat.isDirectory()){
+            }else if(stat.isDi){
                 console.log('这是一个目录')
             }
         })
@@ -40,4 +40,4 @@ fs.exists('./a', function (exists) {
 console.log(__dirname+'./a');
 
 var path = require('path');
-console.log(path.join(__dirname,'a'));
+console.log(path.join(__dirname,'./'),__dirname);

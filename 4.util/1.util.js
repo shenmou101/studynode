@@ -6,14 +6,15 @@ var util = require('util');
 Parent.prototype.say = function () {
     console.log(this.name)
 };
- function Child(){
-    this.name = 'child.name'
+function Child(){
+  console.log('run Child()');
+  this.name = 'child.name'
 }
 
 util.inherits(Child,Parent);
-var child = new Child();
+var child = new Child;   //实例化就是执行一次Child
 child.say();
-console.log(util.inspect(child));//把对象转成字符串
+console.log(util.inspect(child));//把对象转成字符串 不会把原型上的属性转化 只转化可枚举属性
 
 //给对象定义属性
 var obj = new Object();
@@ -42,8 +43,8 @@ obj.age = 24;
 console.log(util.inspect(obj));
 
 //判断类型
-console.log(util.isArray(obj));
-console.log(util.isRegExp(obj));
-console.log(util.isRegExp(obj));
-console.log(util.isError(obj));
+console.log(util.isArray([]));
+console.log(util.isRegExp(/\w+/));
+console.log(util.isDate(new Date));
+console.log(util.isError(new Error));
 console.log(util.isObject(obj));

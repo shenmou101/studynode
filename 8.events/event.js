@@ -2,17 +2,19 @@ var EventEmitter = require('events');
 var util = require('util');
 
 util.inherits(Girl,EventEmitter);   //让Girl的实例继承EventEmitter原型的方法
+
 function Girl(){
 
 }
+
 var girl = new Girl();
 function callback() {
-    console.log('吃饭去吧');
+  console.log('吃饭去吧');
 }
 //on()注册事件 once()只执行一次然后删除
 girl.once('hungry', callback);
 girl.on('sad', function (thing1,thing2) {
-    console.log('去商场买'+thing1+'和'+thing2+'吧');
+  console.log('去商场买'+thing1+'和'+thing2+'吧');
 });
 
 //emit()发射事件

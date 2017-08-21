@@ -3,8 +3,29 @@ var math1 = require('./math.js');
 var math2 = require('./math.js');   //第二次未执行 因为已缓存
 console.log(math1 === math2);
 
-//查看缓存
+//console.log('usemath module',module)
+
+//require原理
+/*var module = {exports: {}};
+(function (exports, require, module, __filename, __dirname) {
+  var exports = module.exports;
+
+  //執行一下被导入的模块js文件 如下
+  function add(a,b) {
+    return a+b;
+  };
+  exports.add = add;
+
+  //最后会返回的一定是module.exports
+  return module.exports
+
+})*/
+
+
+//查看模块缓存
+console.log(111);
 console.log(require.cache);
+
 /*  cache 以key:value方式存放所有的模块缓存
 * { 'e:\nodeproject\studynode\5.module\usemath.js':
  Module {
